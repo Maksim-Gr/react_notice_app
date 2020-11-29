@@ -1,0 +1,12 @@
+html,
+body {
+  height: 100%;
+  font-family: "Lemonada", cursive;
+}
+body {
+  margin: 0;
+  background: -webkit-linear-gradient(45deg, #ada996, #f2f2f2);
+  background: linear-gradient(45deg, #dbdbdb, #eaeaea);
+  font-family: sans-serif;
+  font-weight: 100;
+}
