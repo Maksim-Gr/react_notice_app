@@ -16,6 +16,7 @@ import {
   DialogContentText,
   TextField,
   DialogActions,
+  Box,
 } from "@material-ui/core";
 import SingleRow from "../single-row/SingleRow";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
@@ -38,6 +39,7 @@ const useStyles = makeStyles(() =>
       backgroundColor: "red($color: #a19f9f)",
       textAlign: "center",
       border: "1px solid black",
+      marginBottom: "20px"
     },
     button: {
       backgroundColor: "red($color: #a19f9f)",
@@ -109,18 +111,6 @@ const NoticeTable = () => {
       });
   };
 
-  const deleteSticker = async (id) => {
-    await axios
-      .delete(DELETE_STICKER + id)
-      .then((response) => {
-        swal("Deleted", "Sticker Has been deleted", "success");
-      })
-      .catch((err) => {
-        console.error(err);
-        swal("Error", "Somethimg went wrong", "error");
-      });
-  };
-
   React.useEffect(() => {
     getAllStickers();
   }, []);
@@ -180,21 +170,13 @@ const NoticeTable = () => {
             </TableCell>
           </TableRow>
           <TableRow>
-            <TableCell align="right">#</TableCell>
-            <TableCell align="center">Title</TableCell>
-            <TableCell align="center">Description</TableCell>
-            <TableCell align="center">Created</TableCell>
-            <TableCell align="center">Created Since</TableCell>
-            <TableCell align="center">Delete</TableCell>
-            <TableCell align="center">
-              <Button
-                variant="contained"
-                className={classes.button}
-                onClick={() => setShowModal(true)}
-              >
-                Add new notice
-              </Button>
-            </TableCell>
+            <TableCell align="left">#</TableCell>
+            <TableCell align="left">Title</TableCell>
+            <TableCell align="left">Description</TableCell>
+            <TableCell align="left">Created</TableCell>
+            <TableCell align="left">Created Since</TableCell>
+            <TableCell align="right">Delete</TableCell>
+            <TableCell />
           </TableRow>
         </TableHead>
         <TableBody>
@@ -209,8 +191,18 @@ const NoticeTable = () => {
               getAllStickers={getAllStickers}
             />
           ))}
+
         </TableBody>
       </Table>
+      <Box display="flex" justifyContent="center">
+        <Button
+          variant="contained"
+          className={classes.button}
+          onClick={() => setShowModal(true)}
+        >
+          Add new notice
+              </Button>
+      </Box>
     </Paper>
   );
 };

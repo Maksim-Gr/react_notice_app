@@ -72,13 +72,13 @@ const SingleRow = ({
   return (
     <>
       <TableRow className={classes.root}>
-        <TableCell align="right">
+        <TableCell align="left">
           {index + 1}
         </TableCell>
-        <TableCell align="right">{title}</TableCell>
-        <TableCell align="right">{description}</TableCell>
-        <TableCell align="right">{new Date(created).toDateString()}</TableCell>
-        <TableCell align="right">{calcTimeDifference(new Date(created), new Date(Date.now()))} </TableCell>
+        <TableCell align="left">{title}</TableCell>
+        <TableCell align="left">{description}</TableCell>
+        <TableCell align="left">{new Date(created).toDateString()}</TableCell>
+        <TableCell align="left">{calcTimeDifference(new Date(created), new Date(Date.now()))} </TableCell>
         <TableCell align="right">
           <IconButton onClick={() => deleteSticker(noticeId)}>
             <DeleteIcon fontSize="small" />
